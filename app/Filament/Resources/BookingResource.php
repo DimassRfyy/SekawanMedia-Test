@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Exports\BookingExporter;
 use App\Filament\Resources\BookingResource\Pages;
 use App\Filament\Resources\BookingResource\RelationManagers;
 use App\Models\Booking;
@@ -10,6 +11,7 @@ use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\ExportAction;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -163,6 +165,9 @@ class BookingResource extends Resource
                     ->visible(fn () => Auth::user()->role === 'admin'),
                 Tables\Actions\DeleteAction::make()
                     ->visible(fn () => Auth::user()->role === 'admin'),
+            ])
+            ->headerActions([
+                ExportAction::make()->exporter(BookingExporter::class),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
