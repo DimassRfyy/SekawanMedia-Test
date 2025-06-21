@@ -270,29 +270,6 @@ flowchart TD
 storage/logs/laravel.log
 ```
 
-### Logged Activities
-
-#### User Activities
-
--   Login/Logout events
--   Profile updates
--   Password changes
-
-#### Booking Activities
-
--   Booking creation
--   Booking updates
--   Booking deletion
--   Status changes (pending → approved/rejected)
--   Approval/rejection actions
-
-#### Vehicle & Driver Activities
-
--   Vehicle registration
--   Driver registration
--   Status updates
--   Assignment changes
-
 ### Log Format
 
 ```log
