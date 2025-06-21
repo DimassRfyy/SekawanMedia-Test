@@ -11,4 +11,8 @@ class Vehicle extends Model
     public function bookings() {
         return $this->hasMany(Booking::class);
     }
+
+    public function region() {
+        return $this->belongsTo(Region::class);
+    }
 }
